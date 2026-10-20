@@ -4,23 +4,12 @@ import argparse
 class DFAProblem(Problem):
 
     def initialize_parser(self, parser: argparse.ArgumentParser):
-        """
-        Initialize the parser with the necessary arguments for DFA simulation.
-        Megjegyzés: Az --input és --output argumentumokat a keretrendszer már létrehozta,
-        így itt csak a saját --check argumentumunkat adjuk hozzá.
-        """
         parser.add_argument('--check', type=str, help='Words to check, separated by commas (e.g. a,ab,abc)')
     
     def is_chosen_problem(self, args):
-        """
-        Check if the problem is chosen (based on the presence of --check argument)
-        """
         return bool(args.check)
 
     def run(self, args):
-        """
-        Run the DFA simulation
-        """
         input_file = args.input
         output_file = args.output
         words_to_check = args.check
